@@ -1,0 +1,13 @@
+# Docs - https://hasura.io/docs/latest/graphql/cloud/metrics/integrations/prometheus/
+global:
+  scrape_interval: 60s
+scrape_configs:
+  - job_name: "hasura_prometheus_integration"
+    scrape_interval: 60s ## Recommended scrape interval is 60s
+    metrics_path: "/metrics" ## Replace with metrics Path of the connection URL
+    scheme: "https" ## Replace with URL scheme of connection URL
+    basic_auth:
+      username: "" ## Hasura Project ID goes here
+      password: "" ## Access Token for PRometheus Integration goes here
+    static_configs:
+      - targets: ["prometheus-exporter.pro.hasura.io"] ## Replace with the host name of the connection URL
